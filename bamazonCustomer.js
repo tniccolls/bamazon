@@ -78,7 +78,7 @@ function makePurchase() {
             console.table(results);
             setTimeout(
               confirmQuantity,
-              1000,
+              500,
               answer.purchaseItem,
               price,
               stock_quantity
@@ -128,7 +128,6 @@ function confirmQuantity(item_id, price, stock_quantity) {
                 "Thank you for shopping with bamazon. Your order has been confirmed. "
               );
               var newQTY = stock_quantity - currentQTY;
-              console.log(newQTY);
               updateSQL(newQTY, item_id);
               inquirer
                 .prompt({
@@ -139,7 +138,7 @@ function confirmQuantity(item_id, price, stock_quantity) {
                 .then(function(answer) {
                   if (answer.keepShopping) {
                     showTable();
-                    setTimeout(makePurchase, 1000);
+                    setTimeout(makePurchase, 500);
                   } else {
                     console.log("Shop again soon! We restock quickly!");
                     connection.end();
@@ -154,8 +153,8 @@ function confirmQuantity(item_id, price, stock_quantity) {
           });
       } else {
         console.log("Sorry, that is an invalid input. Please try again.");
-        setTimeout(showTable, 750);
-        setTimeout(makePurchase, 1500);
+        setTimeout(showTable, 500);
+        setTimeout(makePurchase, 1000);
       }
     });
 }
@@ -174,6 +173,6 @@ function updateSQL(new_qty, item_id) {
 
 showTable();
 
-setTimeout(makePurchase, 1000);
+setTimeout(makePurchase, 500);
 
 //   con.query("SELECT * FROM customers WHERE address = 'Park Lane 38'", function (err, result) {

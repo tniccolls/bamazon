@@ -232,5 +232,3 @@ function updateList() {
     listLength = results.length;
   });
 }
-// INSERT INTO products (product_name, department_name, price, stock_quantity)
-// VALUES ("Defense Against the Dark Arts, Vol. 1", "Books", 34.95, 122);
